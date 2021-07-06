@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react'
 
+import MetaDescription from '../../components/MetaDescription'
+
 const Categories = (props) => {
 	const [isCategory, setCategory] = useState(null)
 	useEffect(() => {
@@ -9,9 +11,18 @@ const Categories = (props) => {
 	}, [props.match.params.id])
 
 	return (
-		<div className='global-container'>
-			<div className='main-container'>{isCategory && <h3>Categoría: {isCategory}</h3>}</div>
-		</div>
+		<>
+			<MetaDescription
+				item={{
+					title: `${isCategory ? `Laniakea - ${isCategory}` : 'Laniakea'}`,
+					name: 'description',
+					content: 'Laniakea tienda de imagenes.',
+				}}
+			/>
+			<div className='global-container'>
+				<div className='main-container'>{isCategory && <h3>Categoría: {isCategory}</h3>}</div>
+			</div>
+		</>
 	)
 }
 

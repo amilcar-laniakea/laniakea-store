@@ -2,13 +2,24 @@
 
 import React from 'react'
 
+import MetaDescription from '../../components/MetaDescription'
+
 const Cart = () => {
 	return (
-		<div className='global-container'>
-			<div className='main-container'>
-				<h3>Carrito de Compras!</h3>
+		<>
+			<MetaDescription
+				item={{
+					title: 'Laniakea - Carrito de Compras',
+					name: 'description',
+					content: 'Laniakea tienda de imagenes.',
+				}}
+			/>
+			<div className='global-container'>
+				<div className='main-container'>
+					<h3>Carrito de Compras!</h3>
+				</div>
 			</div>
-		</div>
+		</>
 	)
 }
 
