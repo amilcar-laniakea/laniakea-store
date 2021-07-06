@@ -1,0 +1,14 @@
+/** @format */
+
+@import 'components/colors';
+
+#root {
+	min-height: 100vh;
+}
+
+body {
+	margin: 0;
+	background-color: $background-main;
+}
+
+@import 'components/containers';
