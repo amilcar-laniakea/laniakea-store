@@ -1,0 +1,30 @@
+/** @format */
+
+@import '../../../assets/scss/components/colors';
+@import '../../../assets/scss/components/vars';
+@import '../../../assets/scss/components/fonts';
+
+.footer-global-container {
+	background-color: $color3;
+	padding: 10px;
+}
+
+.footer-main-container {
+	width: 100%;
+	max-width: $max-content;
+	margin: auto;
+}
+
+.footer-title {
+	font-size: $font1;
+	color: $color2;
+	margin: 0;
+	text-align: center;
+}
+
+.footer-subtitle {
+	cursor: pointer;
+	&:hover {
+		text-decoration: underline;
+	}
+}

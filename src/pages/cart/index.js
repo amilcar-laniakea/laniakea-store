@@ -1,13 +1,15 @@
 /** @format */
+
 import React from 'react'
 
-const NotFound = () => {
+const Cart = () => {
 	return (
 		<div className='global-container'>
 			<div className='main-container'>
-				<h3>Page not found!</h3>
+				<h3>Carrito de Compras!</h3>
 			</div>
 		</div>
 	)
 }
-export default NotFound
+
+export default Cart

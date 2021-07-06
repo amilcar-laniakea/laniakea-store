@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout'
 
 import Home from '../pages/home'
+import Cart from '../pages/cart'
+import Categories from '../pages/categories'
 import NotFound from '../pages/not-found'
 
 const Routers = () => (
@@ -13,6 +15,8 @@ const Routers = () => (
 		<Layout>
 			<Switch>
 				<Route exact path='/' component={Home} />
+				<Route exact path='/cart' component={Cart} />
+				<Route exact path='/categories/:id' component={Categories} />
 				<Route path='*' component={NotFound} />
 			</Switch>
 		</Layout>

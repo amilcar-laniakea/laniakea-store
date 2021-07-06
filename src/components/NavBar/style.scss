@@ -1,0 +1,37 @@
+/** @format */
+
+@import '../../assets/scss/components/colors';
+@import '../../assets/scss/components/vars';
+
+.navbar-vertical-spacer {
+	height: 65px;
+}
+
+.navbar-global-container {
+	width: 100%;
+	background-color: $color1;
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	max-height: 65px;
+	height: 65px;
+	display: flex;
+	align-items: center;
+	overflow: hidden;
+}
+
+.navbar-main-container {
+	width: 100%;
+	max-width: $max-content;
+	margin: auto;
+	padding: 6px;
+	display: flex;
+	align-items: center;
+}
+
+.navbar-info-help {
+	color: $color2;
+	font-size: 15px;
+	margin-left: 10px;
+}

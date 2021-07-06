@@ -2,20 +2,33 @@
 
 import React from 'react'
 
-import { Button } from 'antd'
+import { InfoCircleOutlined } from '@ant-design/icons'
 
 import { ContextConsumer } from '../../context'
 
 import ModalGeneralInfo from '../ModalGeneralInfo'
+import LogoWhite from '../Logos/Main'
+
+import MainMenu from './components/MainMenu'
+import CartIcon from './components/CartIcon'
+
+import './style.scss'
 
 const NavBar = () => {
-	const { isModalGeneralInfo, isDate, HandleModalGeneralInfo } = ContextConsumer()
+	const { isDate, HandleModalGeneralInfo } = ContextConsumer()
 
 	return (
 		<>
-			<h3>Navigation Bar!</h3>
-			<h3>{isModalGeneralInfo ? 'activo!' : 'desactivado!'}</h3>
-			<Button onClick={HandleModalGeneralInfo}>Modal</Button>
+			<div className='navbar-vertical-spacer'></div>
+			<div className='navbar-global-container'>
+				<div className='navbar-main-container'>
+					<LogoWhite />
+					<div className='global-spacer' />
+					<MainMenu />
+					<CartIcon />
+					<InfoCircleOutlined className='navbar-info-help' onClick={HandleModalGeneralInfo} />
+				</div>
+			</div>
 			<ModalGeneralInfo
 				info={{
 					title: 'Acerca de:',

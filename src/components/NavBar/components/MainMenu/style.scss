@@ -1,0 +1,32 @@
+/** @format */
+
+@import '../../../../assets/scss/components/colors';
+@import '../../../../assets/scss/components/fonts';
+
+.navbar-menu-main-container {
+	display: flex;
+	list-style: none;
+	align-items: center;
+	margin: 0;
+}
+
+.navbar-menu-item {
+	font-size: $font1;
+	padding: 10px;
+	color: $color2;
+	font-weight: 600;
+	cursor: pointer;
+	line-height: 25px;
+}
+
+.navbar-menu-categories-button {
+	background-color: transparent !important;
+	border: none !important;
+	color: $color2;
+	font-size: $font1;
+	font-weight: 600 !important;
+	padding: 10px !important;
+	box-shadow: $shadow-disabled;
+	line-height: 25px;
+	cursor: pointer;
+}
