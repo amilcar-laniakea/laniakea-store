@@ -1,0 +1,52 @@
+/** @format */
+@import '../../../../../../assets/scss/components/colors';
+@import '../../../../../../assets/scss/components/fonts';
+
+.home-main-banners-card-container {
+	width: 100%;
+	cursor: pointer;
+}
+
+.home-main-banners-card-inner-container {
+	box-shadow: $shadow;
+	margin: 3px;
+}
+
+.home-main-banners-card-image {
+	width: 100%;
+}
+
+.home-main-banners-card-description-container {
+	padding: 10px;
+}
+
+.home-main-banners-card-internal-code {
+	margin-bottom: 0;
+	color: $color7;
+	font-weight: 300;
+	font-size: 0.8rem;
+}
+
+.home-main-banners-card-category {
+	margin-bottom: 0;
+	color: $color4;
+	font-weight: 500;
+	font-size: 0.8rem;
+}
+
+.home-main-banners-card-title {
+	color: $color1;
+	font-size: $font1;
+	font-weight: 600;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
+	margin-bottom: 3px;
+}
+
+.home-main-banners-card-price {
+	color: $color8;
+	font-size: 1.3rem;
+	margin-bottom: 0;
+}

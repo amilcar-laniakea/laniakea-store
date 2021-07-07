@@ -1,12 +1,23 @@
 /** @format */
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import MetaDescription from '../../components/MetaDescription'
 
 import MainBanners from './components/MainBanners'
+import MainBannersLoading from './components/MainBannersLoading'
+
+import FeaturedCarousel from './services'
 
 const Home = () => {
+	const [isFeaturedBanner, setFeaturedBanner] = useState(null)
+
+	useEffect(() => {
+		FeaturedCarousel().then((response) => {
+			setFeaturedBanner(response)
+		})
+	}, [])
+
 	return (
 		<>
 			<MetaDescription
@@ -18,13 +29,14 @@ const Home = () => {
 			/>
 			<div className='global-container'>
 				<div className='main-container'>
-					<h3>Inicio</h3>
-					<MainBanners
-						item={{
-							title: 'Seccion de Banners',
-							subtitle: 'Componente para Colocar el banner principal',
-						}}
-					/>
+					{isFeaturedBanner ? (
+						<>
+							<h3 className='main-title-2'>Imagenes destacadas:</h3>
+							<MainBanners carouselItems={[4, 3, 2, 1]} banners={isFeaturedBanner} />
+						</>
+					) : (
+						<MainBannersLoading />
+					)}
 				</div>
 			</div>
 		</>

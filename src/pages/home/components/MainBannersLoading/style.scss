@@ -1,0 +1,15 @@
+/** @format */
+
+@import '../../../../assets/scss/components/colors';
+
+.main-banners-loading-container {
+	height: 300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.main-banners-icon {
+	color: $color1;
+	font-size: 30px;
+}
