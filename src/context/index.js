@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useMemo, createContext, useContext } from 'react'
+import React, { useState, createContext, useContext } from 'react'
 
 const AppContext = createContext()
 
@@ -18,15 +18,13 @@ export const ContextProvider = (props) => {
 		setCartQuantity(item)
 	}
 
-	const value = useMemo(() => {
-		return {
-			isCartQuantity,
-			isModalGeneralInfo,
-			isDate,
-			HandleModalGeneralInfo,
-			HandleAddProductCart,
-		} // eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isModalGeneralInfo, isDate, isCartQuantity])
+	const value = {
+		isCartQuantity,
+		isModalGeneralInfo,
+		isDate,
+		HandleModalGeneralInfo,
+		HandleAddProductCart,
+	}
 	return <AppContext.Provider value={value} {...props} />
 }
 
