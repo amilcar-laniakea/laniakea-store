@@ -4,10 +4,10 @@ import React from 'react'
 
 import './style.scss'
 
-import { ContextConsumer } from '../../../context'
+import { ContextGlobalConsumer } from '../../../context'
 
 const FooterBottom = () => {
-	const { isDate, HandleModalGeneralInfo } = ContextConsumer()
+	const { isDate, HandleModalGeneralInfo } = ContextGlobalConsumer()
 	return (
 		<div className='footer-global-container'>
 			<div className='footer-main-container'>

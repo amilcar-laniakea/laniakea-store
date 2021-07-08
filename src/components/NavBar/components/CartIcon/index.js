@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom'
 
 import { ShoppingCartOutlined } from '@ant-design/icons'
 
-import { ContextConsumer } from '../../../../context'
+import { ContextGlobalConsumer } from '../../../../context'
 
 import './style.scss'
 
 const CartIcon = () => {
-	const { isCartQuantity } = ContextConsumer()
+	const { isCartQuantity } = ContextGlobalConsumer()
 	return (
 		<Link to='/cart'>
 			<div className='cart-navbar-main-container'>

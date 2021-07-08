@@ -4,7 +4,7 @@ import React from 'react'
 
 import { InfoCircleOutlined } from '@ant-design/icons'
 
-import { ContextConsumer } from '../../context'
+import { ContextGlobalConsumer } from '../../context'
 
 import ModalGeneralInfo from '../ModalGeneralInfo'
 import LogoWhite from '../Logos/Main'
@@ -15,7 +15,7 @@ import CartIcon from './components/CartIcon'
 import './style.scss'
 
 const NavBar = () => {
-	const { isDate, HandleModalGeneralInfo } = ContextConsumer()
+	const { isDate, HandleModalGeneralInfo } = ContextGlobalConsumer()
 
 	return (
 		<>

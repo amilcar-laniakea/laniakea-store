@@ -4,10 +4,10 @@ import React from 'react'
 
 import { Modal } from 'antd'
 
-import { ContextConsumer } from '../../context'
+import { ContextGlobalConsumer } from '../../context'
 
 const ModalGeneralInfo = ({ info }) => {
-	const { isModalGeneralInfo, HandleModalGeneralInfo } = ContextConsumer()
+	const { isModalGeneralInfo, HandleModalGeneralInfo } = ContextGlobalConsumer()
 
 	return (
 		<Modal

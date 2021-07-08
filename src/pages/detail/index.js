@@ -8,12 +8,12 @@ import MetaDescription from '../../components/MetaDescription'
 import Loading from '../../components/Loading'
 import Image from '../../components/Image'
 
-import { ContextConsumer } from '../../context'
+import { ContextGlobalConsumer } from '../../context'
 
 import './style.scss'
 
 const ItemDetail = (props) => {
-	const { isCartQuantity, HandleAddProductCart } = ContextConsumer()
+	const { isCartQuantity, HandleAddProductCart } = ContextGlobalConsumer()
 	const [itemsCartForm] = Form.useForm()
 	const [isDetail, setDetail] = useState(null)
 
