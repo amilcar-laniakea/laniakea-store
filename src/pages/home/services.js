@@ -1,13 +1,13 @@
 /** @format */
 
-import { productFeatured } from './data'
+import { productList } from '../../assets/data'
 
 const FeaturedCarousel = () => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve(productFeatured)
+			resolve(productList)
 			reject('Error en la consulta')
-		}, 3000)
+		}, 2000)
 	})
 }
 export default FeaturedCarousel

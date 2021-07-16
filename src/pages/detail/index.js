@@ -10,6 +10,8 @@ import Image from '../../components/Image'
 
 import { ContextGlobalConsumer } from '../../context'
 
+import ProductDetail from './services'
+
 import './style.scss'
 
 const ItemDetail = (props) => {
@@ -51,17 +53,9 @@ const ItemDetail = (props) => {
 	}
 
 	useEffect(() => {
-		const data = props.match.params.id.split('___')
-		const detail = {
-			id: data[0],
-			title: data[1],
-			description: data[2],
-			image: data[3].replace(/[-]/g, '/'),
-			category: data[4],
-			price: data[5],
-			stock: data[6],
-		}
-		setDetail(detail)
+		ProductDetail(props.match.params.id).then((response) => {
+			setDetail(response)
+		})
 	}, [props.match.params.id])
 
 	if (!isDetail) {
@@ -90,7 +84,12 @@ const ItemDetail = (props) => {
 							<h2>{isDetail.title}</h2>
 							<h3>{isDetail.description}</h3>
 							<h3>Stock: {isDetail.stock}</h3>
-							<h3>Categoría: {isDetail.category}</h3>
+							<h3>Categoría: {isDetail.category.name_category}</h3>
+							{isDetail.interface.promotion && (
+								<h3 className='detail-promotion-title'>
+									Promoción: {isDetail.interface.promotion.name}
+								</h3>
+							)}
 							<h1>Precio: ${isDetail.price}</h1>
 						</div>
 						<div>
