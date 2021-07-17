@@ -15,7 +15,7 @@ import ProductDetail from './services'
 import './style.scss'
 
 const ItemDetail = (props) => {
-	const { isCartQuantity, HandleAddProductCart } = ContextGlobalConsumer()
+	const { HandleAddProductCart } = ContextGlobalConsumer()
 	const [itemsCartForm] = Form.useForm()
 	const [isDetail, setDetail] = useState(null)
 
@@ -47,9 +47,9 @@ const ItemDetail = (props) => {
 		}
 	}
 
-	const handleAddItemCart = () => {
+	const handleAddItemCart = (item) => {
 		const quantity = itemsCartForm.getFieldValue('cart_quantity')
-		HandleAddProductCart(isCartQuantity + quantity)
+		HandleAddProductCart(item, quantity)
 	}
 
 	useEffect(() => {
@@ -113,7 +113,7 @@ const ItemDetail = (props) => {
 							</Form>
 							<Button
 								disabled={isDetail.stock <= 0 ? true : false}
-								onClick={() => handleAddItemCart()}>
+								onClick={() => handleAddItemCart(isDetail)}>
 								Agregar al carrito
 							</Button>
 						</div>
