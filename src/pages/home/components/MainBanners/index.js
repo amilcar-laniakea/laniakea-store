@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import AwesomeSwiper from 'react-awesome-swiper'
 
-import CardItems from './components/CardItems'
+import CardItems from '../../../../components/CardItems'
 
 import './style.scss'
 

@@ -10,7 +10,7 @@ const ProductDetail = (item) => {
 		setTimeout(() => {
 			resolve(productList[requestIndexProduct])
 			reject('Error en la consulta')
-		}, 2000)
+		}, 1000)
 	})
 }
 export default ProductDetail

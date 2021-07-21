@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { Dropdown, Menu } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 
+import { mainCategories } from '../../../../assets/categories'
+
 import './style.scss'
 
 const MainMenu = () => {
@@ -29,15 +31,15 @@ const MainMenu = () => {
 				visible={isVisible}
 				overlay={
 					<Menu onClick={() => handleCloseMenu(false)}>
-						<Menu.Item key='1'>
-							<Link to={'/categories/anime'}>Anime</Link>
-						</Menu.Item>
-						<Menu.Item key='2'>
-							<Link to={'/categories/ilustrations'}>Ilustraciones</Link>
-						</Menu.Item>
-						<Menu.Item key='3'>
-							<Link to={'/categories/logos'}>Logos</Link>
-						</Menu.Item>
+						{mainCategories.map((item, index) => (
+							<Menu.Item key={index}>
+								<Link
+									className='navbar-menu-categories-title'
+									to={`/categories/${item.name}`}>
+									{item.name}
+								</Link>
+							</Menu.Item>
+						))}
 					</Menu>
 				}
 				trigger={['click']}>

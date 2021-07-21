@@ -1,0 +1,23 @@
+/** @format */
+
+@import '../../assets/scss/components/colors';
+@import '../../assets/scss/components/fonts';
+
+.categories-main-container {
+	background-color: $color7;
+	padding: 20px 0;
+	margin-bottom: 15px;
+}
+
+.categories-main-title {
+	color: $color2;
+	font-size: $font2;
+	margin-bottom: 5px;
+	text-transform: capitalize;
+	font-style: italic;
+	text-align: center;
+}
+
+.categories-card-container {
+	padding: 5px;
+}
