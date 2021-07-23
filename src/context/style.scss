@@ -1,0 +1,12 @@
+/** @format */
+
+@import '../assets/scss/components/colors';
+.cart-notification-button-container {
+	width: 100%;
+	text-align: right;
+}
+
+.cart-notification-button {
+	background-color: $color1;
+	color: $color2;
+}

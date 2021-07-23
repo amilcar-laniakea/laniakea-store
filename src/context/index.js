@@ -2,17 +2,24 @@
 
 import React, { useState, createContext, useContext } from 'react'
 
+import { useHistory } from 'react-router-dom'
+
+import { Button, notification } from 'antd'
+
+import './style.scss'
+
 const AppContext = createContext()
 
 if (JSON.parse(localStorage.getItem('cart')) === null) {
 	localStorage.setItem('cart', JSON.stringify([]))
 }
 
-const HandleQuantityProduct = (item) => {
-	return item.reduce((data, item) => data + item.quantity, 0)
-}
-
 export const ContextGlobalProvider = (props) => {
+	const history = useHistory()
+	const HandleQuantityProduct = (item) => {
+		return item.reduce((data, item) => data + item.quantity, 0)
+	}
+
 	const cart = JSON.parse(localStorage.getItem('cart'))
 	const [isDate] = useState(new Date().getFullYear())
 	const [isModalGeneralInfo, setModalGeneralInfo] = useState(false)
@@ -21,6 +28,10 @@ export const ContextGlobalProvider = (props) => {
 
 	const HandleModalGeneralInfo = () => {
 		setModalGeneralInfo(!isModalGeneralInfo)
+	}
+
+	const HandleCartLink = () => {
+		history.push('/cart')
 	}
 
 	const HandleAddProductCart = (item, data) => {
@@ -37,6 +48,25 @@ export const ContextGlobalProvider = (props) => {
 		localStorage.setItem('cart', JSON.stringify(cart))
 		setCart(JSON.parse(localStorage.getItem('cart')))
 		setCartQuantity(HandleQuantityProduct(cart))
+		notification['success']({
+			key: 1,
+			message: 'Enhorabuena:',
+			duration: 5,
+			description: (
+				<>
+					<h4>Has agregado un producto a tu bolsa de compras:</h4>
+					<h4>{`Producto: ${item.title}`}</h4>
+					<h4>{`Cantidad: ${data}`}</h4>
+					<h4>{`Precio por Unidad: $${item.price}`}</h4>
+					<h4>{`Total: $${item.price * data}`}</h4>
+					<div className='cart-notification-button-container'>
+						<Button onClick={() => HandleCartLink()} className='cart-notification-button'>
+							Ir al Carrito
+						</Button>
+					</div>
+				</>
+			),
+		})
 	}
 
 	const value = {

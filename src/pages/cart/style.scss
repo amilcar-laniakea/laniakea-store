@@ -1,0 +1,35 @@
+/** @format */
+.cart-product-container {
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+.cart-product-container:last-child {
+	margin-bottom: 0;
+}
+
+.cart-image-product-container {
+	padding: 5px;
+}
+
+.cart-image-product {
+	width: 100%;
+	max-width: 100px;
+	transition: 0.3s ease;
+	cursor: pointer;
+}
+
+.cart-image-product:hover {
+	opacity: 0.8;
+	transition: 0.3s ease;
+}
+
+.cart-image-modal-product-container {
+	padding: 10px;
+}
+
+.cart-image-modal-product {
+	width: 100%;
+}

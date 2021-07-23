@@ -2,54 +2,22 @@
 
 import React, { useEffect, useState } from 'react'
 
-import { Button, Input, Form, notification } from 'antd'
-
 import MetaDescription from '../../components/MetaDescription'
 import Loading from '../../components/Loading'
 import Image from '../../components/Image'
-
-import { ContextGlobalConsumer } from '../../context'
+import CounterProduct from '../../components/CounterProduct'
+import AddProduct from '../../components/AddProduct'
 
 import ProductDetail from './services'
 
 import './style.scss'
 
 const ItemDetail = (props) => {
-	const { HandleAddProductCart } = ContextGlobalConsumer()
-	const [itemsCartForm] = Form.useForm()
 	const [isDetail, setDetail] = useState(null)
+	const [isQuantity, setQuantity] = useState(0)
 
-	const handleDeleteQuantity = () => {
-		const quantity = itemsCartForm.getFieldValue('cart_quantity')
-		if (quantity === 1) {
-			notification['warning']({
-				message: 'Aviso:',
-				description: '¡No puedes disminuir la cantidad inferior a un (1) artículo!.',
-			})
-		} else {
-			itemsCartForm.setFieldsValue({
-				cart_quantity: quantity - 1,
-			})
-		}
-	}
-
-	const handleAddQuantity = () => {
-		const quantity = itemsCartForm.getFieldValue('cart_quantity')
-		if (quantity >= isDetail.stock) {
-			notification['warning']({
-				message: 'Aviso:',
-				description: '¡No puedes agregar mas productos al stock disponible!.',
-			})
-		} else {
-			itemsCartForm.setFieldsValue({
-				cart_quantity: quantity + 1,
-			})
-		}
-	}
-
-	const handleAddItemCart = (item) => {
-		const quantity = itemsCartForm.getFieldValue('cart_quantity')
-		HandleAddProductCart(item, quantity)
+	const handleQuantity = (item) => {
+		setQuantity(item)
 	}
 
 	useEffect(() => {
@@ -92,31 +60,8 @@ const ItemDetail = (props) => {
 							)}
 							<h1>Precio: ${isDetail.price}</h1>
 						</div>
-						<div>
-							<Form
-								className='detail-quantity-form-container'
-								form={itemsCartForm}
-								initialValues={{ cart_quantity: 1 }}>
-								<Button
-									disabled={isDetail.stock <= 0 ? true : false}
-									onClick={() => handleDeleteQuantity()}>
-									-
-								</Button>
-								<Form.Item name='cart_quantity'>
-									<Input className='detail-quantity-form-input' disabled />
-								</Form.Item>
-								<Button
-									disabled={isDetail.stock <= 0 ? true : false}
-									onClick={() => handleAddQuantity()}>
-									+
-								</Button>
-							</Form>
-							<Button
-								disabled={isDetail.stock <= 0 ? true : false}
-								onClick={() => handleAddItemCart(isDetail)}>
-								Agregar al carrito
-							</Button>
-						</div>
+						<CounterProduct detail={isDetail} handleQuantity={(e) => handleQuantity(e)} />
+						<AddProduct detail={isDetail} quantity={isQuantity} />
 					</div>
 				</div>
 			</>

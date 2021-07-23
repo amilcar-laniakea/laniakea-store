@@ -1,0 +1,15 @@
+/** @format */
+
+@import '../../assets/scss/components/colors';
+
+.detail-quantity-form-container {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+}
+
+.detail-quantity-form-input[disabled] {
+	color: $color3;
+	background-color: $color2;
+	cursor: pointer;
+}
