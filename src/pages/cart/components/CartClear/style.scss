@@ -1,0 +1,40 @@
+/** @format */
+
+@import '../../../../assets/scss/components/colors';
+
+.cart-clear-button,
+.cart-clear-button:hover,
+.cart-clear-button:focus,
+.cart-clear-button:active {
+	background-color: $color1;
+	padding: 7px 15px !important;
+	height: auto !important;
+	color: $color2;
+	font-size: 1rem !important;
+	font-weight: 600 !important;
+	border-radius: 3px !important;
+}
+
+.cart-clear-item {
+	margin-right: 5px;
+	font-size: 20px;
+}
+
+.cart-clear-modal-container .ant-modal-body {
+	text-align: center;
+}
+
+.cart-clear-modal-container .ant-modal-footer {
+	display: none;
+}
+
+.cart-clear-modal-main-title {
+	margin-top: 15px;
+	color: $color1;
+}
+
+.cart-clear-modal-main-subtitle {
+	color: $color8;
+	font-style: italic;
+	margin-bottom: 10px;
+}

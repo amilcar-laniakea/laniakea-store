@@ -8,11 +8,18 @@ import { Link } from 'react-router-dom'
 
 import Image from '../../components/Image'
 import MetaDescription from '../../components/MetaDescription'
+import Spacer from '../../components/Spacer'
+
+import { ContextGlobalConsumer } from '../../context'
+
+import CartQuantity from './components/CartQuantity'
+import CartDeleteProduct from './components/CartDeleteProduct'
+import CartClear from './components/CartClear'
 
 import './style.scss'
 
 const Cart = () => {
-	const [isCart] = useState(JSON.parse(localStorage.getItem('cart')))
+	const { isCart, isCartQuantity } = ContextGlobalConsumer()
 	const [isVisible, setVisible] = useState(false)
 	const [isImage, setImage] = useState(null)
 
@@ -48,9 +55,15 @@ const Cart = () => {
 				/>
 				<div className='global-container'>
 					<div className='main-container'>
-						<h1>Mis Productos:</h1>
+						<div className='cart-title-container'>
+							<h1 className='cart-main-title'>Mis Productos:</h1>
+							<Spacer />
+							<CartClear />
+						</div>
 						{isCart.map((item, index) => (
 							<div key={index} className='cart-product-container'>
+								<CartQuantity cart={item} />
+								<CartDeleteProduct cart={item} />
 								<div onClick={() => handlePreviewImage(item)}>
 									<Image
 										container={'cart-image-product-container'}
@@ -63,12 +76,14 @@ const Cart = () => {
 								<h3>Título: {item.title}</h3>
 								<h3>Descripción: {item.description}</h3>
 								<h3>Cantidad: {item.quantity}</h3>
+								<h3>Stock: {item.stock}</h3>
 								<h3>Precio: ${item.price}</h3>
 								<h3>
 									Precio por {item.quantity} unidades: ${item.price * item.quantity}
 								</h3>
 							</div>
 						))}
+						<h2>CANTIDAD DE PRODUCTOS: {isCartQuantity}</h2>
 						<h1>TOTAL GENERAL: ${handlePriceCart(isCart)}</h1>
 					</div>
 				</div>

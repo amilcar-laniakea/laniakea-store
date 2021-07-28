@@ -1,5 +1,9 @@
 /** @format */
+
+@import '../../assets/scss/components/colors';
+
 .cart-product-container {
+	position: relative;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
@@ -32,4 +36,18 @@
 
 .cart-image-modal-product {
 	width: 100%;
+}
+
+.cart-title-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.cart-main-title {
+	margin-bottom: 0;
+	font-weight: 600;
+	font-style: italic;
+	color: $color1;
 }

@@ -17,7 +17,11 @@ if (JSON.parse(localStorage.getItem('cart')) === null) {
 export const ContextGlobalProvider = (props) => {
 	const history = useHistory()
 	const HandleQuantityProduct = (item) => {
-		return item.reduce((data, item) => data + item.quantity, 0)
+		if (item) {
+			return item.reduce((data, item) => data + item.quantity, 0)
+		} else {
+			return 0
+		}
 	}
 
 	const cart = JSON.parse(localStorage.getItem('cart'))
@@ -34,9 +38,9 @@ export const ContextGlobalProvider = (props) => {
 		history.push('/cart')
 	}
 
-	const HandleAddProductCart = (item, data) => {
+	const HandleAddProductCart = (item, data, isCartValidate) => {
 		let cart = isCart
-		const request = isCart.findIndex((index) => {
+		const request = cart.findIndex((index) => {
 			return index.id === item.id
 		})
 		if (request === -1) {
@@ -48,25 +52,55 @@ export const ContextGlobalProvider = (props) => {
 		localStorage.setItem('cart', JSON.stringify(cart))
 		setCart(JSON.parse(localStorage.getItem('cart')))
 		setCartQuantity(HandleQuantityProduct(cart))
-		notification['success']({
-			key: 1,
-			message: 'Enhorabuena:',
-			duration: 5,
-			description: (
-				<>
-					<h4>Has agregado un producto a tu bolsa de compras:</h4>
-					<h4>{`Producto: ${item.title}`}</h4>
-					<h4>{`Cantidad: ${data}`}</h4>
-					<h4>{`Precio por Unidad: $${item.price}`}</h4>
-					<h4>{`Total: $${item.price * data}`}</h4>
-					<div className='cart-notification-button-container'>
-						<Button onClick={() => HandleCartLink()} className='cart-notification-button'>
-							Ir al Carrito
-						</Button>
-					</div>
-				</>
-			),
+		if (!isCartValidate) {
+			notification['success']({
+				key: 1,
+				message: 'Enhorabuena:',
+				duration: 5,
+				description: (
+					<>
+						<h4>Has agregado un producto a tu bolsa de compras:</h4>
+						<h4>{`Producto: ${item.title}`}</h4>
+						<h4>{`Cantidad: ${data}`}</h4>
+						<h4>{`Precio por Unidad: $${item.price}`}</h4>
+						<h4>{`Total: $${item.price * data}`}</h4>
+						<div className='cart-notification-button-container'>
+							<Button onClick={() => HandleCartLink()} className='cart-notification-button'>
+								Ir al Carrito
+							</Button>
+						</div>
+					</>
+				),
+			})
+		}
+	}
+
+	const HandleDeleteQuantityItemCart = (item, data) => {
+		let cart = isCart
+		const request = cart.findIndex((index) => {
+			return index.id === item.id
 		})
+		cart[request].quantity = cart[request].quantity - data
+		localStorage.setItem('cart', JSON.stringify(cart))
+		setCart(JSON.parse(localStorage.getItem('cart')))
+		setCartQuantity(HandleQuantityProduct(cart))
+	}
+
+	const HandleDeleteItemCart = (item) => {
+		let cart = isCart
+		const request = cart.findIndex((index) => {
+			return index.id === item.id
+		})
+		cart.splice(request, 1)
+		localStorage.setItem('cart', JSON.stringify(cart))
+		setCart(JSON.parse(localStorage.getItem('cart')))
+		setCartQuantity(HandleQuantityProduct(cart))
+	}
+
+	const HandleClearCart = () => {
+		const cart = localStorage.setItem('cart', JSON.stringify([]))
+		setCart(JSON.parse(localStorage.getItem('cart')))
+		setCartQuantity(HandleQuantityProduct(cart))
 	}
 
 	const value = {
@@ -76,6 +110,9 @@ export const ContextGlobalProvider = (props) => {
 		isDate,
 		HandleModalGeneralInfo,
 		HandleAddProductCart,
+		HandleDeleteQuantityItemCart,
+		HandleDeleteItemCart,
+		HandleClearCart,
 	}
 	return <AppContext.Provider value={value} {...props} />
 }

@@ -1,0 +1,11 @@
+/** @format */
+
+@import '../../../../assets/scss/components/colors';
+
+.cart-delete-item {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	color: $color1;
+	font-size: 22px;
+}
