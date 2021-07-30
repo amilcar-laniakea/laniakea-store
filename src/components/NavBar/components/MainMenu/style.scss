@@ -34,3 +34,11 @@
 	line-height: 25px;
 	cursor: pointer;
 }
+
+.navbar-menu-container {
+	position: fixed !important;
+	width: 100% !important;
+	max-width: 135px !important;
+	top: 60px !important;
+	margin: 0 !important;
+}

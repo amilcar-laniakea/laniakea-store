@@ -7,7 +7,7 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 import { ContextGlobalConsumer } from '../../context'
 
 import ModalGeneralInfo from '../ModalGeneralInfo'
-import LogoWhite from '../Logos/Main'
+import Logo from '../Logos/Main'
 
 import MainMenu from './components/MainMenu'
 import CartIcon from './components/CartIcon'
@@ -22,7 +22,11 @@ const NavBar = () => {
 			<div className='navbar-vertical-spacer'></div>
 			<div className='navbar-global-container'>
 				<div className='navbar-main-container'>
-					<LogoWhite />
+					<Logo
+						img={
+							'https://firebasestorage.googleapis.com/v0/b/laniakea-coder.appspot.com/o/laniakea-coder%2Fmain-logos%2Fark-store-white.png?alt=media&token=cb0380e4-4649-4308-a662-406a81cad11b'
+						}
+					/>
 					<div className='global-spacer' />
 					<MainMenu />
 					<CartIcon />

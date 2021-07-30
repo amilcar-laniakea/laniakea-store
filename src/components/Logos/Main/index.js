@@ -6,17 +6,15 @@ import { Link } from 'react-router-dom'
 
 import Image from '../../Image'
 
-import imgLogo from '../../../assets/img/ark-store-white.png'
-
 import './style.scss'
 
-const Logo = () => {
+const Logo = ({ img }) => {
 	return (
 		<Link to='/'>
 			<Image
 				container={'main-logo-white-container'}
 				class={'main-logo-white'}
-				image={imgLogo}
+				image={img}
 				alt={'Ark Store'}
 				title={'ArkStore'}
 			/>

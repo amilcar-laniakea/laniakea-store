@@ -30,7 +30,7 @@ const MainMenu = () => {
 				onVisibleChange={handleCloseMenu}
 				visible={isVisible}
 				overlay={
-					<Menu onClick={() => handleCloseMenu(false)}>
+					<Menu className='navbar-menu-container' onClick={() => handleCloseMenu(false)}>
 						{mainCategories.map((item, index) => (
 							<Menu.Item key={index}>
 								<Link
