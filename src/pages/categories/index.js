@@ -9,6 +9,7 @@ import MetaDescription from '../../components/MetaDescription'
 import CardItems from '../../components/CardItems'
 import Loading from '../../components/Loading'
 import Error from '../../components/Error'
+import Image from '../../components/Image'
 
 import FilterCategories from './services'
 
@@ -43,7 +44,14 @@ const Categories = (props) => {
 						}}
 					/>
 					<div className='categories-main-container'>
-						<h1 className='categories-main-title'>Categoria: {props.match.params.id}</h1>
+						<h1 className='categories-main-title'>Categoría: {props.match.params.id}</h1>
+						<Image
+							container={'categories-image-container'}
+							class={'categories-image'}
+							image={isCategory[0].category.image}
+							alt={props.match.params.id}
+							title={props.match.params.id}
+						/>
 					</div>
 					<div className='global-container'>
 						<div className='main-container'>

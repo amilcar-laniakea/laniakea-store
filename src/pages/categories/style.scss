@@ -5,8 +5,11 @@
 
 .categories-main-container {
 	background-color: $color7;
-	padding: 20px 0;
+	padding: 25px 0;
 	margin-bottom: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .categories-main-title {
@@ -20,4 +23,15 @@
 
 .categories-card-container {
 	padding: 5px;
+}
+
+.categories-image-container {
+	padding: 3px;
+}
+
+.categories-image {
+	width: 100%;
+	max-width: 50px;
+	border: 1px solid $color2;
+	border-radius: 100px;
 }
