@@ -6,7 +6,7 @@ import { Button, Modal } from 'antd'
 
 import { ExclamationCircleFilled } from '@ant-design/icons'
 
-import { ContextGlobalConsumer } from '../../../../context'
+import { ContextGlobalConsumer } from '../../../../context/Global'
 
 import './style.scss'
 

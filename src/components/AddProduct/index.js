@@ -4,19 +4,19 @@ import React from 'react'
 
 import { Button, notification } from 'antd'
 
-import { ContextGlobalConsumer } from '../../context'
+import { ContextDetailProductConsumer } from '../../context/DetailProduct'
 
 const AddProduct = ({ detail, quantity }) => {
-	const { HandleAddProductCart } = ContextGlobalConsumer()
+	const { HandAddVerifyProductCart } = ContextDetailProductConsumer()
 
 	const handleAddItemCart = (item) => {
 		if (quantity <= 0) {
 			notification['warning']({
 				message: 'Aviso:',
-				description: '¡Debes agregar una cantidad para proceder con la compra!.',
+				description: '¡Debes agregar una cantidad!',
 			})
 		} else {
-			HandleAddProductCart(item, quantity)
+			HandAddVerifyProductCart(item, quantity)
 		}
 	}
 

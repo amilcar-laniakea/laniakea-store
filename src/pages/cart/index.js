@@ -10,7 +10,7 @@ import Image from '../../components/Image'
 import MetaDescription from '../../components/MetaDescription'
 import Spacer from '../../components/Spacer'
 
-import { ContextGlobalConsumer } from '../../context'
+import { ContextGlobalConsumer } from '../../context/Global'
 
 import CartQuantity from './components/CartQuantity'
 import CartDeleteProduct from './components/CartDeleteProduct'
@@ -73,7 +73,9 @@ const Cart = () => {
 										title={item.title}
 									/>
 								</div>
-								<h3>Título: {item.title}</h3>
+								<Link to={`/detail/${item.id}`}>
+									<h3 className=''>Título: {item.title}</h3>
+								</Link>
 								<h3>Descripción: {item.description}</h3>
 								<h3>Cantidad: {item.quantity}</h3>
 								<h3>Stock: {item.stock}</h3>

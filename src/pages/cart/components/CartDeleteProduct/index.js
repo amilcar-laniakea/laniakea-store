@@ -4,7 +4,7 @@ import React from 'react'
 
 import { DeleteFilled } from '@ant-design/icons'
 
-import { ContextGlobalConsumer } from '../../../../context'
+import { ContextGlobalConsumer } from '../../../../context/Global'
 
 import './style.scss'
 

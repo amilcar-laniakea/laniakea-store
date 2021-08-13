@@ -2,9 +2,10 @@
 
 import { notification } from 'antd'
 
-import { db } from '../../firebase'
+import { db } from '../../../../firebase'
 
 const ProductDetail = async (data) => {
+	const cart = JSON.parse(localStorage.getItem('cart'))
 	let dataResponse
 
 	const detail = db.collection('laniakea-store-db')
@@ -20,7 +21,17 @@ const ProductDetail = async (data) => {
 				const index = array.findIndex((i) => {
 					return i.id === data
 				})
-				dataResponse = array[index]
+				let product = { ...array[index] }
+				let validateProduct
+				if (cart.length > 0) {
+					cart.forEach((e) => {
+						if (e.id === product.id) {
+							product.stock = product.stock - e.quantity
+							validateProduct = true
+						}
+					})
+				}
+				dataResponse = { detail: product, inCart: validateProduct }
 			} else {
 				notification['warning']({
 					message: 'Aviso:',

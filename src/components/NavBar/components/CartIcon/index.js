@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 import { ShoppingCartOutlined } from '@ant-design/icons'
 
-import { ContextGlobalConsumer } from '../../../../context'
+import { ContextGlobalConsumer } from '../../../../context/Global'
 
 import './style.scss'
 

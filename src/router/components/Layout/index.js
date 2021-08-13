@@ -3,7 +3,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { ContextGlobalProvider } from '../../../context'
+import { ContextGlobalProvider } from '../../../context/Global'
 
 import NavBar from '../../../components/NavBar'
 import FooterBottom from '../../../components/Footer/Bottom'

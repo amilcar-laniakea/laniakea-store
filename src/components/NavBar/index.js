@@ -4,7 +4,7 @@ import React from 'react'
 
 import { InfoCircleOutlined } from '@ant-design/icons'
 
-import { ContextGlobalConsumer } from '../../context'
+import { ContextGlobalConsumer } from '../../context/Global'
 
 import ModalGeneralInfo from '../ModalGeneralInfo'
 import Logo from '../Logos/Main'

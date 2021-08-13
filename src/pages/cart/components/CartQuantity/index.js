@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Button, Input, Form, notification } from 'antd'
 
-import { ContextGlobalConsumer } from '../../../../context'
+import { ContextGlobalConsumer } from '../../../../context/Global'
 
 import './style.scss'
 

@@ -1,0 +1,41 @@
+/** @format */
+
+@import '../../../../assets/scss/components/colors';
+
+.detail-main-image-container {
+	padding: 10px;
+	text-align: center;
+}
+
+.detail-main-image {
+	width: 100%;
+	max-width: 400px;
+}
+
+.detail-promotion-title {
+	color: $color1;
+	font-style: italic;
+}
+
+.detail-note-container {
+	padding: 10px;
+	border: 1px solid $color1;
+	border-radius: 4px;
+	background-color: $color1;
+}
+
+.detail-note-title {
+	color: $color2;
+}
+
+.detail-note-subtitle {
+	color: $color2;
+	margin-bottom: 0;
+}
+
+.detail-note-link, .detail-note-link:hover {
+	color: $color2;
+	margin-bottom: 0;
+	text-decoration: underline;
+  text-transform: uppercase;
+}
