@@ -1,0 +1,16 @@
+/** @format */
+
+@import '../../../../assets/scss/components/colors';
+
+.cart-payment-button,
+.cart-payment-button:hover,
+.cart-payment-button:focus,
+.cart-payment-button:active {
+	background-color: $color1;
+	padding: 7px 15px !important;
+	height: auto !important;
+	color: $color2;
+	font-size: 1rem !important;
+	font-weight: 600 !important;
+	border-radius: 3px !important;
+}

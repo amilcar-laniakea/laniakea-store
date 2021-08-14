@@ -2,19 +2,22 @@
 
 import React, { useState } from 'react'
 
+import { Link } from 'react-router-dom'
+
 import { Button, Modal } from 'antd'
 
-import { Link } from 'react-router-dom'
+import { ContextGlobalConsumer } from '../../context/Global'
 
 import Image from '../../components/Image'
 import MetaDescription from '../../components/MetaDescription'
 import Spacer from '../../components/Spacer'
 
-import { ContextGlobalConsumer } from '../../context/Global'
+import { CartPrice } from '../../components/Hooks/GeneralFuncions'
 
 import CartQuantity from './components/CartQuantity'
 import CartDeleteProduct from './components/CartDeleteProduct'
 import CartClear from './components/CartClear'
+import CheckCartModal from './components/CheckCartModal'
 
 import './style.scss'
 
@@ -22,10 +25,6 @@ const Cart = () => {
 	const { isCart, isCartQuantity } = ContextGlobalConsumer()
 	const [isVisible, setVisible] = useState(false)
 	const [isImage, setImage] = useState(null)
-
-	const handlePriceCart = (item) => {
-		return item.reduce((data, element) => data + element.price * element.quantity, 0)
-	}
 
 	const handlePreviewImage = (item) => {
 		setVisible(true)
@@ -74,7 +73,9 @@ const Cart = () => {
 									/>
 								</div>
 								<Link to={`/detail/${item.id}`}>
-									<h3 className=''>Título: {item.title}</h3>
+									<h2 className=''>
+										<strong>Título: {item.title}</strong>
+									</h2>
 								</Link>
 								<h3>Descripción: {item.description}</h3>
 								<h3>Cantidad: {item.quantity}</h3>
@@ -83,10 +84,16 @@ const Cart = () => {
 								<h3>
 									Precio por {item.quantity} unidades: ${item.price * item.quantity}
 								</h3>
+								{item.outStock && (
+									<h3 className='cart-product-out-stock'>
+										no hay stock Suficiente de este producto...
+									</h3>
+								)}
 							</div>
 						))}
 						<h2>CANTIDAD DE PRODUCTOS: {isCartQuantity}</h2>
-						<h1>TOTAL GENERAL: ${handlePriceCart(isCart)}</h1>
+						<h1>TOTAL GENERAL: ${CartPrice(isCart)}</h1>
+						<CheckCartModal cart={isCart} />
 					</div>
 				</div>
 				<Modal

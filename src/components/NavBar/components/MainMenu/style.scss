@@ -10,6 +10,11 @@
 	margin: 0;
 }
 
+.navbar-menu-link,
+.navbar-menu-link:hover {
+	color: $color2;
+}
+
 .navbar-menu-item {
 	font-size: $font1;
 	padding: 10px;

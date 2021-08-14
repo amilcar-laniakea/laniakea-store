@@ -35,7 +35,11 @@ const MainMenu = () => {
 	return (
 		<>
 			<ul className='navbar-menu-main-container'>
-				<li className='navbar-menu-item'>Nosotros</li>
+				<li className='navbar-menu-item'>
+					<Link className='navbar-menu-link' to='/order-historial'>
+						Ordenes
+					</Link>
+				</li>
 				<li className='navbar-menu-item'>Productos</li>
 			</ul>
 			<Dropdown

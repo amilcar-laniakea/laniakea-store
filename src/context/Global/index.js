@@ -16,6 +16,7 @@ if (JSON.parse(localStorage.getItem('cart')) === null) {
 
 export const ContextGlobalProvider = (props) => {
 	const history = useHistory()
+
 	const HandleQuantityProduct = (item) => {
 		if (item) {
 			return item.reduce((data, item) => data + item.quantity, 0)
@@ -103,6 +104,10 @@ export const ContextGlobalProvider = (props) => {
 		setCartQuantity(HandleQuantityProduct(cart))
 	}
 
+	const HandleStockCart = (i) => {
+		setCart([...i])
+	}
+
 	const value = {
 		isCart,
 		isCartQuantity,
@@ -113,6 +118,7 @@ export const ContextGlobalProvider = (props) => {
 		HandleDeleteQuantityItemCart,
 		HandleDeleteItemCart,
 		HandleClearCart,
+		HandleStockCart,
 	}
 	return <AppContext.Provider value={value} {...props} />
 }
