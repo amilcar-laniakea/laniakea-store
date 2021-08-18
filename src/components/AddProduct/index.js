@@ -6,6 +6,8 @@ import { Button, notification } from 'antd'
 
 import { ContextDetailProductConsumer } from '../../context/DetailProduct'
 
+import './style.scss'
+
 const AddProduct = ({ detail, quantity }) => {
 	const { HandAddVerifyProductCart } = ContextDetailProductConsumer()
 
@@ -21,11 +23,14 @@ const AddProduct = ({ detail, quantity }) => {
 	}
 
 	return (
-		<Button
-			disabled={detail.stock <= 0 ? true : false || quantity <= 0}
-			onClick={() => handleAddItemCart(detail)}>
-			Agregar al carrito
-		</Button>
+		<div className='add-product-button-container'>
+			<Button
+				className='add-product-button'
+				disabled={detail.stock <= 0 ? true : false || quantity <= 0}
+				onClick={() => handleAddItemCart(detail)}>
+				Agregar al carrito
+			</Button>
+		</div>
 	)
 }
 

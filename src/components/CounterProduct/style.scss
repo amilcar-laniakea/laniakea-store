@@ -2,6 +2,10 @@
 
 @import '../../assets/scss/components/colors';
 
+.counter-global-container {
+	padding: 0 10px;
+}
+
 .detail-quantity-form-container {
 	display: flex;
 	justify-content: flex-start;

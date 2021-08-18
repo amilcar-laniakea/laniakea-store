@@ -2,6 +2,15 @@
 
 @import '../../../../assets/scss/components/colors';
 
+.main-container {
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	padding: 25px 10px 35px;
+}
+
 .detail-main-image-container {
 	padding: 10px;
 	text-align: center;
@@ -9,12 +18,52 @@
 
 .detail-main-image {
 	width: 100%;
-	max-width: 400px;
+	max-width: 450px;
+}
+
+.detail-global-text-container {
+	width: 100%;
+	max-width: 630px;
+}
+
+.detail-main-text-container {
+	padding: 10px 15px 0;
+}
+
+.detail-title {
+	font-size: 20px;
+	margin-bottom: 0;
+	font-weight: 700;
+}
+
+.detail-code-title {
+	font-size: 14px;
+	color: $color7;
+	font-style: italic;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+}
+
+.detail-description {
+	text-align: justify;
+	margin-bottom: 0;
+	padding-bottom: 10px;
+	font-size: 15px;
+}
+
+.detail-category {
+	margin-bottom: 0;
+	font-size: 15px;
+}
+
+.detail-stock {
+	font-size: 15px;
 }
 
 .detail-promotion-title {
 	color: $color1;
 	font-style: italic;
+	margin-bottom: 0;
 }
 
 .detail-note-container {
@@ -33,9 +82,10 @@
 	margin-bottom: 0;
 }
 
-.detail-note-link, .detail-note-link:hover {
+.detail-note-link,
+.detail-note-link:hover {
 	color: $color2;
 	margin-bottom: 0;
 	text-decoration: underline;
-  text-transform: uppercase;
+	text-transform: uppercase;
 }

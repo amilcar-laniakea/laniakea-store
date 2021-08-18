@@ -15,7 +15,7 @@ const ProductCounter = ({ detail, handleQuantity }) => {
 		if (quantity === 1) {
 			notification['warning']({
 				message: 'Aviso:',
-				description: '¡No puedes disminuir la cantidad inferior a un (1) artículo!.',
+				description: '¡No puedes disminuir la cantidad inferior a un (1) artículo!',
 			})
 		} else {
 			quantity = quantity - 1
@@ -46,7 +46,7 @@ const ProductCounter = ({ detail, handleQuantity }) => {
 	}
 
 	return (
-		<div>
+		<div className='counter-global-container'>
 			<Form
 				className='detail-quantity-form-container'
 				form={itemsCartForm}
