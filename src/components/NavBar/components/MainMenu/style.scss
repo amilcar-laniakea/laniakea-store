@@ -43,6 +43,12 @@
 	box-shadow: $shadow-disabled;
 	line-height: 25px;
 	cursor: pointer;
+	align-items: center;
+	display: flex;
+}
+
+.navbar-menu-categories-button span {
+	margin-left: 2px;
 }
 
 .navbar-menu-container {

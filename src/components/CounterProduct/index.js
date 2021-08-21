@@ -52,6 +52,7 @@ const ProductCounter = ({ detail, handleQuantity }) => {
 				form={itemsCartForm}
 				initialValues={{ cart_quantity: 0 }}>
 				<Button
+					className='detail-quantity-button'
 					disabled={detail.stock <= 0 ? true : false || isValidDelete}
 					onClick={() => handleDeleteQuantity()}>
 					-
@@ -59,7 +60,10 @@ const ProductCounter = ({ detail, handleQuantity }) => {
 				<Form.Item name='cart_quantity'>
 					<Input className='detail-quantity-form-input' disabled />
 				</Form.Item>
-				<Button disabled={detail.stock <= 0 ? true : false} onClick={() => handleAddQuantity()}>
+				<Button
+					className='detail-quantity-button'
+					disabled={detail.stock <= 0 ? true : false}
+					onClick={() => handleAddQuantity()}>
 					+
 				</Button>
 			</Form>

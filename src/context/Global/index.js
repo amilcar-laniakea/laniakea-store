@@ -4,7 +4,9 @@ import React, { useState, createContext, useContext } from 'react'
 
 import { useHistory } from 'react-router-dom'
 
-import { Button, notification } from 'antd'
+import { Button, notification, Row, Col } from 'antd'
+
+import Image from '../../components/Image'
 
 import './style.scss'
 
@@ -56,20 +58,52 @@ export const ContextGlobalProvider = (props) => {
 		if (!isCartValidate) {
 			notification['success']({
 				key: 1,
+				className: 'cart-notification-global-container',
 				message: 'Enhorabuena:',
 				duration: 5,
 				description: (
 					<>
-						<h4>Has agregado un producto a tu bolsa de compras:</h4>
-						<h4>{`Producto: ${item.title}`}</h4>
-						<h4>{`Cantidad: ${data}`}</h4>
-						<h4>{`Precio por Unidad: $${item.price}`}</h4>
-						<h4>{`Total: $${item.price * data}`}</h4>
-						<div className='cart-notification-button-container'>
-							<Button onClick={() => HandleCartLink()} className='cart-notification-button'>
-								Ir al Carrito
-							</Button>
-						</div>
+						<Row>
+							<Col span={6} className='cart-notification-image-global-container'>
+								<Image
+									container={'cart-notification-image-main-container'}
+									class={'cart-notification-image'}
+									image={item.image}
+									alt={item.title}
+									title={item.title}
+								/>
+							</Col>
+							<Col span={18}>
+								<div className='cart-notification-text-global-container'>
+									<h4 className='cart-notification-main-title'>
+										Has agregado un producto a tu bolsa de compras:
+									</h4>
+									<h4 className='cart-notification-product-name'>
+										<span className='cart-nitification-span'>Producto:</span> {item.title}
+									</h4>
+									<h4 className='cart-notification-product-amount'>
+										<span className='cart-nitification-span'>Cantidad:</span> {data}
+									</h4>
+									<h4 className='cart-notification-product-single-price'>
+										<span className='cart-nitification-span'>Precio por unidad:</span> $
+										{item.price}
+									</h4>
+									<h4 className='cart-notification-product-total-price'>
+										<span className='cart-nitification-span'>Total:</span> $
+										{item.price * data}
+									</h4>
+								</div>
+							</Col>
+							<Col span={24}>
+								<div className='cart-notification-button-container'>
+									<Button
+										onClick={() => HandleCartLink()}
+										className='cart-notification-button'>
+										Ir al Carrito
+									</Button>
+								</div>
+							</Col>
+						</Row>
 					</>
 				),
 			})

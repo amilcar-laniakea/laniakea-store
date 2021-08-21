@@ -33,7 +33,7 @@ const PaymentModal = (props) => {
 	return (
 		<>
 			<Modal
-				wrapClassName=''
+				wrapClassName='cart-payment-modal-container'
 				maskClosable={true}
 				width='1024px'
 				centered
@@ -43,40 +43,57 @@ const PaymentModal = (props) => {
 				cancelButtonProps={{ style: { display: 'none' } }}
 				okButtonProps={{ style: { display: 'none' } }}>
 				<br />
-				<h2>Formulario de Pago:</h2>
-				<h4>Complete los siguientes datos para finalizar su pedido</h4>
+				<h2 className='cart-payment-modal-title'>Formulario de pago:</h2>
+				<h4 className='cart-payment-modal-subtitle'>
+					Complete los siguientes datos para finalizar su pedido
+				</h4>
 				<br />
 				<Form name='paymentForm' onFinish={handleSetPayment} form={paymentForm}>
 					<Row>
 						<Col span={12}>
-							<h4>Nombre:</h4>
-							<Form.Item name={'first_name'} rules={Rules.required}>
-								<Input size='large' type='text' placeholder={'Nombre'} />
-							</Form.Item>
+							<div className='cart-payment-input-container'>
+								<h4 className='cart-payment-input-title'>Nombre:</h4>
+								<Form.Item name={'first_name'} rules={Rules.required}>
+									<Input size='large' type='text' placeholder={'Nombre'} />
+								</Form.Item>
+							</div>
 						</Col>
 						<Col span={12}>
-							<h4>Apellido:</h4>
-							<Form.Item name={'last_name'} rules={Rules.required}>
-								<Input size='large' type='text' placeholder={'Apellido'} />
-							</Form.Item>
+							<div className='cart-payment-input-container'>
+								<h4 className='cart-payment-input-title'>Apellido:</h4>
+								<Form.Item name={'last_name'} rules={Rules.required}>
+									<Input size='large' type='text' placeholder={'Apellido'} />
+								</Form.Item>
+							</div>
 						</Col>
 						<Col span={12}>
-							<h4>Documento ID:</h4>
-							<Form.Item name={'document_id'} rules={Rules.required}>
-								<Input size='large' type='text' placeholder={'Documento de Identidad'} />
-							</Form.Item>
+							<div className='cart-payment-input-container'>
+								<h4 className='cart-payment-input-title'>Documento ID:</h4>
+								<Form.Item name={'document_id'} rules={Rules.required}>
+									<Input size='large' type='text' placeholder={'Documento de Identidad'} />
+								</Form.Item>
+							</div>
 						</Col>
 						<Col span={12}>
-							<h4>Teléfono:</h4>
-							<Form.Item name={'phone'} rules={Rules.required}>
-								<Input size='large' type='text' placeholder={'Teléfono'} />
-							</Form.Item>
+							<div className='cart-payment-input-container'>
+								<h4 className='cart-payment-input-title'>Teléfono:</h4>
+								<Form.Item name={'phone'} rules={Rules.required}>
+									<Input size='large' type='text' placeholder={'Teléfono'} />
+								</Form.Item>
+							</div>
 						</Col>
 						<Col span={24}>
-							<h4>Dirección:</h4>
-							<Form.Item name={'address'} rules={Rules.required}>
-								<TextArea size='large' type={'text'} placeholder={'Dirección'} rows={4} />
-							</Form.Item>
+							<div className='cart-payment-input-container'>
+								<h4 className='cart-payment-input-title'>Dirección:</h4>
+								<Form.Item name={'address'} rules={Rules.required}>
+									<TextArea
+										size='large'
+										type={'text'}
+										placeholder={'Dirección'}
+										rows={4}
+									/>
+								</Form.Item>
+							</div>
 						</Col>
 						<Col span={24}>
 							<div className='cart-payment-set-button-container'>
@@ -84,7 +101,7 @@ const PaymentModal = (props) => {
 									htmlType='submit'
 									loading={isLoading}
 									className='cart-payment-set-button'>
-									PROCESAR PAGO
+									Procesar pago
 								</Button>
 							</div>
 						</Col>

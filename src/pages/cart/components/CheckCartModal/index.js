@@ -39,7 +39,7 @@ const CheckCartModal = ({ cart }) => {
 				className='cart-payment-button'
 				onClick={() => handlePayment()}>
 				<CheckCircleFilled className='cart-clear-item' />
-				PAGAR
+				Pagar
 			</Button>
 			<Modal
 				wrapClassName='cart-clear-modal-container'
@@ -52,7 +52,7 @@ const CheckCartModal = ({ cart }) => {
 				okText='Confirmar'
 				cancelButtonProps={{ style: { display: 'none' } }}
 				okButtonProps={{ style: { display: 'none' } }}>
-				<h3 className='cart-clear-modal-main-title'>Comprobando su Carrito de Compras...</h3>
+				<h3 className='cart-clear-modal-main-title'>Comprobando su carrito de compras...</h3>
 				<h4 className='cart-clear-modal-main-subtitle'>*No cierre el navegador</h4>
 				<Spin indicator={<LoadingOutlined style={{ fontSize: 24 }} spin />} />
 			</Modal>

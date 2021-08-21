@@ -35,7 +35,7 @@ const ProductDetail = async (data) => {
 			} else {
 				notification['warning']({
 					message: 'Aviso:',
-					description: '¡Error, Registro no encontrado ó problemas con la consulta!.',
+					description: '¡Error, registro no encontrado ó problemas con la consulta!.',
 				})
 			}
 		})

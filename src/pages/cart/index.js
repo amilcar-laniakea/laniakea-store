@@ -59,45 +59,79 @@ const Cart = () => {
 							<Spacer />
 							<CartClear />
 						</div>
-						{isCart.map((item, index) => (
-							<div key={index} className='cart-product-container'>
-								<CartQuantity cart={item} />
-								<CartDeleteProduct cart={item} />
-								<div onClick={() => handlePreviewImage(item)}>
-									<Image
-										container={'cart-image-product-container'}
-										class={'cart-image-product'}
-										image={item.image}
-										alt={item.title}
-										title={item.title}
-									/>
-								</div>
-								<Link to={`/detail/${item.id}`}>
-									<h2 className=''>
-										<strong>Título: {item.title}</strong>
-									</h2>
-								</Link>
-								<h3>Descripción: {item.description}</h3>
-								<h3>Cantidad: {item.quantity}</h3>
-								<h3>Stock: {item.stock}</h3>
-								<h3>Precio: ${item.price}</h3>
-								<h3>
-									Precio por {item.quantity} unidades: ${item.price * item.quantity}
-								</h3>
-								{item.outStock && (
-									<h3 className='cart-product-out-stock'>
-										no hay stock Suficiente de este producto...
-									</h3>
-								)}
+						<div className='cart-checkout-global-container'>
+							<div className='cart-checkout-map-container'>
+								{isCart.map((item, index) => (
+									<div key={index} className='cart-product-global-container'>
+										<CartQuantity cart={item} />
+										<CartDeleteProduct cart={item} />
+										<div className='cart-product-main-container'>
+											<div
+												className='cart-image-product-global-container'
+												onClick={() => handlePreviewImage(item)}>
+												<Image
+													container={'cart-image-product-main-container'}
+													class={'cart-image-product'}
+													image={item.image}
+													alt={item.title}
+													title={item.title}
+												/>
+											</div>
+											<div className='cart-detail-text-global-container'>
+												<Link to={`/detail/${item.id}`}>
+													<h2 className='cart-detail-title'>
+														<span className='cart-detail-span'>Título:</span>{' '}
+														{item.title}
+													</h2>
+												</Link>
+												<h3 className='cart-detail-description'>
+													<span className='cart-detail-span'>Descripción:</span>{' '}
+													{item.description}
+												</h3>
+												<h3 className='cart-detail-quantity'>
+													<span className='cart-detail-span'>Cantidad:</span>{' '}
+													{item.quantity}
+												</h3>
+												<h3 className='cart-detail-stock'>
+													<span className='cart-detail-span'>Stock:</span> {item.stock}
+												</h3>
+												<h3 className='cart-detail-price'>
+													<span className='cart-detail-span'>Precio:</span> $
+													{item.price}
+												</h3>
+												<h3 className='cart-detail-amount-price'>
+													<span className='cart-detail-span'>
+														Precio por {item.quantity} unidades:
+													</span>{' '}
+													${item.price * item.quantity}
+												</h3>
+												{item.outStock && (
+													<h3 className='cart-product-out-stock'>
+														No hay stock suficiente de este producto...
+													</h3>
+												)}
+											</div>
+										</div>
+									</div>
+								))}
 							</div>
-						))}
-						<h2>CANTIDAD DE PRODUCTOS: {isCartQuantity}</h2>
-						<h1>TOTAL GENERAL: ${CartPrice(isCart)}</h1>
-						<CheckCartModal cart={isCart} />
+							<Spacer />
+							<div className='cart-payment-global-container'>
+								<h2 className='cart-payment-quantity'>
+									<span className='cart-payment-span'>Cantidad de productos:</span>{' '}
+									{isCartQuantity}
+								</h2>
+								<h2 className='cart-payment-total-price'>
+									<span className='cart-payment-span'>Total general:</span> $
+									{CartPrice(isCart)}
+								</h2>
+								<CheckCartModal cart={isCart} />
+							</div>
+						</div>
 					</div>
 				</div>
 				<Modal
-					wrapClassName=''
+					wrapClassName='cart-image-modal-global-container'
 					maskClosable={true}
 					width='1024px'
 					centered

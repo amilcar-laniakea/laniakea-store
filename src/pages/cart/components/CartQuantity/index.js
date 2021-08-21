@@ -29,14 +29,17 @@ const CartQuantity = ({ cart }) => {
 		} else {
 			notification['warning']({
 				message: 'Aviso:',
-				description: '¡No puedes agregar mas productos respecto al stock disponible!',
+				description: '¡No puedes agregar más productos respecto al stock disponible!',
 			})
 		}
 	}
 
 	return (
 		<div className='cart-quantity-container'>
-			<Button disabled={cart.quantity === 1} onClick={() => handleDeleteItemCart(cart)}>
+			<Button
+				className='cart-quantity-button'
+				disabled={cart.quantity === 1}
+				onClick={() => handleDeleteItemCart(cart)}>
 				-
 			</Button>
 			<Form
@@ -47,7 +50,9 @@ const CartQuantity = ({ cart }) => {
 					<Input className='detail-quantity-form-input' disabled />
 				</Form.Item>
 			</Form>
-			<Button onClick={() => handleAddItemCart(cart)}>+</Button>
+			<Button className='cart-quantity-button' onClick={() => handleAddItemCart(cart)}>
+				+
+			</Button>
 		</div>
 	)
 }
