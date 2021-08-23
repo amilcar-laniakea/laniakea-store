@@ -7,7 +7,7 @@
 .cart-payment-button:active {
 	border: 1px solid $color1;
 	background-color: $color1;
-	padding: 7px 15px !important;
+	padding: 6px 15px !important;
 	height: auto !important;
 	color: $color2;
 	font-size: 15px !important;
@@ -16,6 +16,7 @@
 	align-items: center;
 	display: flex !important;
 	transition: 0.5s ease !important;
+	margin: 20px auto 5px;
 }
 
 .cart-payment-button:hover {

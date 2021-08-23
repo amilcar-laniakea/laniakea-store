@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 import { Button, Modal, Spin } from 'antd'
 
-import { LoadingOutlined, CheckCircleFilled } from '@ant-design/icons'
+import { LoadingOutlined, CreditCardFilled } from '@ant-design/icons'
 
 import CheckCart from './services'
 
@@ -38,7 +38,7 @@ const CheckCartModal = ({ cart }) => {
 				loading={isVisible}
 				className='cart-payment-button'
 				onClick={() => handlePayment()}>
-				<CheckCircleFilled className='cart-clear-item' />
+				<CreditCardFilled className='cart-clear-item' />
 				Pagar
 			</Button>
 			<Modal

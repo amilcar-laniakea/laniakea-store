@@ -4,7 +4,9 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom'
 
-import { Button, Modal } from 'antd'
+import { Button, Modal, Row, Col } from 'antd'
+
+import { ExclamationCircleOutlined } from '@ant-design/icons'
 
 import { ContextGlobalConsumer } from '../../context/Global'
 
@@ -33,11 +35,16 @@ const Cart = () => {
 
 	if (isCart.length <= 0) {
 		return (
-			<div className='global-container'>
-				<div className='main-container'>
-					<h1>No hay productos en su Carrito de compras!</h1>
+			<div className='empty-cart-global-container'>
+				<div className='empty-cart-main-container'>
+					<span>
+						<ExclamationCircleOutlined className='empty-cart-main-icon' />
+					</span>
+					<h2 className='empty-cart-main-title'>
+						¡No hay productos en su carrito de compras!
+					</h2>
 					<Link to='/'>
-						<Button>Ir al Inicio</Button>
+						<Button className='empty-cart-return-button'>Ir al inicio</Button>
 					</Link>
 				</div>
 			</div>
@@ -47,7 +54,7 @@ const Cart = () => {
 			<>
 				<MetaDescription
 					item={{
-						title: 'Laniakea - Carrito de Compras',
+						title: 'Laniakea - Carrito de compras',
 						name: 'description',
 						content: 'Laniakea tienda de imagenes.',
 					}}
@@ -55,79 +62,91 @@ const Cart = () => {
 				<div className='global-container'>
 					<div className='main-container'>
 						<div className='cart-title-container'>
-							<h1 className='cart-main-title'>Mis Productos:</h1>
+							<h2 className='cart-main-title'>Mis Productos:</h2>
 							<Spacer />
 							<CartClear />
 						</div>
-						<div className='cart-checkout-global-container'>
-							<div className='cart-checkout-map-container'>
-								{isCart.map((item, index) => (
-									<div key={index} className='cart-product-global-container'>
-										<CartQuantity cart={item} />
-										<CartDeleteProduct cart={item} />
-										<div className='cart-product-main-container'>
-											<div
-												className='cart-image-product-global-container'
-												onClick={() => handlePreviewImage(item)}>
-												<Image
-													container={'cart-image-product-main-container'}
-													class={'cart-image-product'}
-													image={item.image}
-													alt={item.title}
-													title={item.title}
-												/>
-											</div>
-											<div className='cart-detail-text-global-container'>
-												<Link to={`/detail/${item.id}`}>
-													<h2 className='cart-detail-title'>
-														<span className='cart-detail-span'>Título:</span>{' '}
-														{item.title}
-													</h2>
-												</Link>
-												<h3 className='cart-detail-description'>
-													<span className='cart-detail-span'>Descripción:</span>{' '}
-													{item.description}
-												</h3>
-												<h3 className='cart-detail-quantity'>
-													<span className='cart-detail-span'>Cantidad:</span>{' '}
-													{item.quantity}
-												</h3>
-												<h3 className='cart-detail-stock'>
-													<span className='cart-detail-span'>Stock:</span> {item.stock}
-												</h3>
-												<h3 className='cart-detail-price'>
-													<span className='cart-detail-span'>Precio:</span> $
-													{item.price}
-												</h3>
-												<h3 className='cart-detail-amount-price'>
-													<span className='cart-detail-span'>
-														Precio por {item.quantity} unidades:
-													</span>{' '}
-													${item.price * item.quantity}
-												</h3>
-												{item.outStock && (
-													<h3 className='cart-product-out-stock'>
-														No hay stock suficiente de este producto...
-													</h3>
-												)}
-											</div>
+						<Row className='cart-checkout-global-container'>
+							<Col xs={24} sm={24} md={24} lg={17} xl={17}>
+								<div className='cart-checkout-map-container'>
+									{isCart.map((item, index) => (
+										<div key={index} className='cart-product-global-container'>
+											<CartQuantity cart={item} />
+											<CartDeleteProduct cart={item} />
+											<Row>
+												<Col xs={24} sm={24} md={6} lg={6} xl={6}>
+													<div onClick={() => handlePreviewImage(item)}>
+														<Image
+															container={'cart-image-product-main-container'}
+															class={'cart-image-product'}
+															image={item.image}
+															alt={item.title}
+															title={item.title}
+														/>
+													</div>
+												</Col>
+												<Col xs={24} sm={24} md={18} lg={18} xl={18}>
+													<div className='cart-text-product-main-container'>
+														<Link to={`/detail/${item.id}`}>
+															<h2 className='cart-detail-title'>
+																<span className='cart-detail-span'>Título:</span>{' '}
+																{item.title}
+															</h2>
+														</Link>
+														<h3 className='cart-detail-description'>
+															<span className='cart-detail-span'>Descripción:</span>{' '}
+															{item.description}
+														</h3>
+														<h3 className='cart-detail-description'>
+															<span className='cart-detail-span'>Cantidad:</span>{' '}
+															{item.quantity}
+														</h3>
+														<h3 className='cart-detail-description'>
+															<span className='cart-detail-span'>Stock:</span>{' '}
+															{item.stock}
+														</h3>
+														<h3 className='cart-detail-description'>
+															<span className='cart-detail-span'>Precio:</span> $
+															{item.price}
+														</h3>
+														<h3 className='cart-detail-description'>
+															<span className='cart-detail-span'>
+																Precio por {item.quantity} unidades:
+															</span>{' '}
+															${item.price * item.quantity}
+														</h3>
+														{item.outStock && (
+															<h3 className='cart-product-out-stock'>
+																No hay stock suficiente de este producto...
+															</h3>
+														)}
+													</div>
+												</Col>
+											</Row>
 										</div>
-									</div>
-								))}
-							</div>
-							<Spacer />
-							<div className='cart-payment-global-container'>
-								<h2 className='cart-payment-quantity'>
-									<span className='cart-payment-span'>Cantidad de productos:</span>{' '}
-									{isCartQuantity}
-								</h2>
-								<h2 className='cart-payment-total-price'>
-									<span className='cart-payment-span'>Total general:</span> $
-									{CartPrice(isCart)}
-								</h2>
-								<CheckCartModal cart={isCart} />
-							</div>
-						</div>
+									))}
+								</div>
+							</Col>
+							<Col
+								className='cart-payment-global-container'
+								xs={24}
+								sm={12}
+								md={9}
+								lg={7}
+								xl={7}>
+								<div className='cart-payment-main-container'>
+									<h2 className='cart-payment-quantity'>
+										<span className='cart-payment-span'>Cantidad de productos:</span>{' '}
+										{isCartQuantity}
+									</h2>
+									<h2 className='cart-payment-total-price'>
+										<span className='cart-payment-span'>Total general:</span> $
+										{CartPrice(isCart)}
+									</h2>
+									<CheckCartModal cart={isCart} />
+								</div>
+							</Col>
+						</Row>
 					</div>
 				</div>
 				<Modal

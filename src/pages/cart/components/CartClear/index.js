@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 
 import { Button, Modal } from 'antd'
 
-import { ExclamationCircleFilled } from '@ant-design/icons'
+import { ClearOutlined } from '@ant-design/icons'
 
 import { ContextGlobalConsumer } from '../../../../context/Global'
 
@@ -22,7 +22,7 @@ const CartClear = () => {
 	return (
 		<>
 			<Button className='cart-clear-button' onClick={() => setVisible(true)}>
-				<ExclamationCircleFilled className='cart-clear-item' />
+				<ClearOutlined className='cart-clear-item' />
 				Limpiar carrito
 			</Button>
 			<Modal
