@@ -57,7 +57,14 @@ const Categories = (props) => {
 						<div className='main-container'>
 							<Row>
 								{isCategory.map((item, index) => (
-									<Col span={8} key={index} className='categories-card-container'>
+									<Col
+										xs={24}
+										sm={24}
+										md={12}
+										lg={8}
+										xl={8}
+										key={index}
+										className='categories-card-container'>
 										<CardItems item={item} />
 									</Col>
 								))}

@@ -44,7 +44,7 @@ const OrderHistorial = () => {
 						/>
 						<div className='global-container'>
 							<div className='main-container'>
-								<h2 className='order-historial-main-title'>Historial de ordenes:</h2>
+								<h2 className='laniakea-main-title-global'>Historial de ordenes:</h2>
 								{isOrders.map((item, index) => (
 									<div key={index} className='order-historial-list-container'>
 										<div className='order-historial-list-text-container'>

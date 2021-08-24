@@ -62,7 +62,7 @@ const Cart = () => {
 				<div className='global-container'>
 					<div className='main-container'>
 						<div className='cart-title-container'>
-							<h2 className='cart-main-title'>Mis Productos:</h2>
+							<h2 className='laniakea-main-title-global'>Mis Productos:</h2>
 							<Spacer />
 							<CartClear />
 						</div>

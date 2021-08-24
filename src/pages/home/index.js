@@ -42,7 +42,7 @@ const Home = () => {
 						<>
 							{isFeaturedBanner ? (
 								<>
-									<h3 className='main-title-2'>Imagenes destacadas:</h3>
+									<h3 className='laniakea-main-title-global'>Imagenes destacadas:</h3>
 									<MainBanners carouselItems={[4, 3, 2, 1]} banners={isFeaturedBanner} />
 								</>
 							) : (

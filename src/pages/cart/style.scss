@@ -2,6 +2,7 @@
 
 @import '../../assets/scss/components/colors';
 @import '../../assets/scss/components/vars';
+@import '../../assets/scss/components/fonts';
 
 .empty-cart-global-container {
 	width: 100%;
@@ -23,14 +24,6 @@
 	color: $color1;
 	font-size: 50px;
 	padding: 10px 0;
-}
-
-.empty-cart-main-title {
-	margin-bottom: 0;
-	font-weight: 500;
-	font-style: italic;
-	color: $color1;
-	font-size: 25px;
 }
 
 .empty-cart-return-button,
@@ -60,7 +53,6 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 10px;
 }
 
 .cart-main-title {
