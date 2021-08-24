@@ -73,56 +73,54 @@ const Cart = () => {
 										<div key={index} className='cart-product-global-container'>
 											<CartQuantity cart={item} />
 											<CartDeleteProduct cart={item} />
-											<Row>
-												<Col xs={24} sm={24} md={6} lg={6} xl={6}>
-													<div onClick={() => handlePreviewImage(item)}>
-														<Image
-															container={'cart-image-product-main-container'}
-															class={'cart-image-product'}
-															image={item.image}
-															alt={item.title}
-															title={item.title}
-														/>
-													</div>
-												</Col>
-												<Col xs={24} sm={24} md={18} lg={18} xl={18}>
-													<div className='cart-text-product-main-container'>
-														<Link to={`/detail/${item.id}`}>
-															<h2 className='cart-detail-title'>
-																<span className='cart-detail-span'>Título:</span>{' '}
-																{item.title}
-															</h2>
-														</Link>
-														<h3 className='cart-detail-description'>
-															<span className='cart-detail-span'>Descripción:</span>{' '}
-															{item.description}
+											<div className='cart-product-main-container'>
+												<div
+													className='cart-image-product-global-container'
+													onClick={() => handlePreviewImage(item)}>
+													<Image
+														container={'cart-image-product-main-container'}
+														class={'cart-image-product'}
+														image={item.image}
+														alt={item.title}
+														title={item.title}
+													/>
+												</div>
+												<div className='cart-text-product-main-container'>
+													<Link to={`/detail/${item.id}`}>
+														<h2 className='cart-detail-title'>
+															<span className='cart-detail-span'>Título:</span>{' '}
+															{item.title}
+														</h2>
+													</Link>
+													<h3 className='cart-detail-description'>
+														<span className='cart-detail-span'>Descripción:</span>{' '}
+														{item.description}
+													</h3>
+													<h3 className='cart-detail-description'>
+														<span className='cart-detail-span'>Cantidad:</span>{' '}
+														{item.quantity}
+													</h3>
+													<h3 className='cart-detail-description'>
+														<span className='cart-detail-span'>Stock:</span>{' '}
+														{item.stock}
+													</h3>
+													<h3 className='cart-detail-description'>
+														<span className='cart-detail-span'>Precio:</span> $
+														{item.price}
+													</h3>
+													<h3 className='cart-detail-description'>
+														<span className='cart-detail-span'>
+															Precio por {item.quantity} unidades:
+														</span>{' '}
+														${item.price * item.quantity}
+													</h3>
+													{item.outStock && (
+														<h3 className='cart-product-out-stock'>
+															No hay stock suficiente de este producto...
 														</h3>
-														<h3 className='cart-detail-description'>
-															<span className='cart-detail-span'>Cantidad:</span>{' '}
-															{item.quantity}
-														</h3>
-														<h3 className='cart-detail-description'>
-															<span className='cart-detail-span'>Stock:</span>{' '}
-															{item.stock}
-														</h3>
-														<h3 className='cart-detail-description'>
-															<span className='cart-detail-span'>Precio:</span> $
-															{item.price}
-														</h3>
-														<h3 className='cart-detail-description'>
-															<span className='cart-detail-span'>
-																Precio por {item.quantity} unidades:
-															</span>{' '}
-															${item.price * item.quantity}
-														</h3>
-														{item.outStock && (
-															<h3 className='cart-product-out-stock'>
-																No hay stock suficiente de este producto...
-															</h3>
-														)}
-													</div>
-												</Col>
-											</Row>
+													)}
+												</div>
+											</div>
 										</div>
 									))}
 								</div>
