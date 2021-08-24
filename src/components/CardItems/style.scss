@@ -10,10 +10,20 @@
 .home-main-banners-card-inner-container {
 	box-shadow: $shadow;
 	margin: 3px;
+	background-color: $color12;
+	border-radius: 5px;
 }
 
 .home-main-banners-card-image {
 	width: 100%;
+	border-radius: 5px 5px 0 0;
+	filter: opacity(80%);
+	transition: 0.3s ease;
+}
+
+.home-main-banners-card-image:hover {
+	filter: opacity(100%);
+	transition: 0.3s ease;
 }
 
 .home-main-banners-card-description-container {
