@@ -5,18 +5,18 @@
 .cart-payment-button,
 .cart-payment-button:focus,
 .cart-payment-button:active {
-	border: 1px solid $color1;
-	background-color: $color1;
-	padding: 6px 15px !important;
+	border: 1px solid #00364e !important;
+	background-color: #00364e !important;
+	padding: 10px 35px !important;
 	height: auto !important;
-	color: $color2;
+	color: #ffffff !important;
 	font-size: 15px !important;
 	font-weight: 500 !important;
 	border-radius: 5px !important;
 	align-items: center;
 	display: flex !important;
 	transition: 0.5s ease !important;
-	margin: 20px auto 5px;
+	margin: 23px auto 14px;
 }
 
 .cart-payment-button:hover {

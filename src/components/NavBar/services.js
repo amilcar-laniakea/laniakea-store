@@ -2,7 +2,7 @@
 
 import { notification } from 'antd'
 
-import { db } from '../../../../firebase'
+import { db } from '../../firebase'
 
 const Categories = async () => {
 	let dataResponse

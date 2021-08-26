@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react'
 
+import { useHistory } from 'react-router'
+
 import { Button, Modal, Form, Input, Row, Col } from 'antd'
 
 import { ContextGlobalConsumer } from '../../../../../../context/Global'
@@ -13,6 +15,7 @@ import Payment from './services'
 import './style.scss'
 
 const PaymentModal = (props) => {
+	const history = useHistory()
 	const { isCart, isCartQuantity, HandleClearCart } = ContextGlobalConsumer()
 	const [paymentForm] = Form.useForm()
 	const { TextArea } = Input
@@ -26,6 +29,7 @@ const PaymentModal = (props) => {
 			if (r) {
 				paymentForm.resetFields()
 				await HandleClearCart()
+				history.push('/order-success')
 			}
 		})
 	}

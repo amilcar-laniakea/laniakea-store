@@ -133,14 +133,10 @@ const Cart = () => {
 								lg={7}
 								xl={7}>
 								<div className='cart-payment-main-container'>
-									<h2 className='cart-payment-quantity'>
-										<span className='cart-payment-span'>Cantidad de productos:</span>{' '}
-										{isCartQuantity}
-									</h2>
-									<h2 className='cart-payment-total-price'>
-										<span className='cart-payment-span'>Total general:</span> $
-										{CartPrice(isCart)}
-									</h2>
+									<h2 className='cart-payment-quantity-title'>Cantidad de Productos:</h2>
+									<h2 className='cart-payment-quantity'>{isCartQuantity}</h2>
+									<h2 className='cart-payment-total-price-title'>Total General:</h2>
+									<h2 className='cart-payment-total-price'>${CartPrice(isCart)}</h2>
 									<CheckCartModal cart={isCart} />
 								</div>
 							</Col>

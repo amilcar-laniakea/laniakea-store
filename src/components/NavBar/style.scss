@@ -36,3 +36,24 @@
 	font-size: 15px;
 	margin-left: 10px;
 }
+
+.navbar-drawer-container {
+}
+
+.navbar-main-menu-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media (min-width: 601px) {
+	.navbar-drawer-container {
+		display: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.navbar-main-menu-container {
+		display: none;
+	}
+}

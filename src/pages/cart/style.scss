@@ -21,7 +21,7 @@
 }
 
 .empty-cart-main-icon {
-	color: $color1;
+	color: $color8;
 	font-size: 50px;
 	padding: 10px 0;
 }
@@ -146,26 +146,43 @@
 
 .cart-payment-main-container {
 	width: 100%;
-	padding: 20px;
+	padding: 30px 20px;
 	border: 1px solid $color9;
 	background-color: $color12;
 	border-radius: 5px;
+	text-align: center;
+}
+
+.cart-payment-quantity-title {
+	font-size: 19px;
+	font-weight: 700;
+	margin-bottom: 0;
+	opacity: 0.8;
 }
 
 .cart-payment-quantity {
-	font-size: 19px;
-	font-weight: 400;
+	font-size: 22px;
+	font-weight: 700;
 	margin-bottom: 0;
+}
+
+.cart-payment-total-price-title {
+	font-size: 19px;
+	font-weight: 700;
+	margin-bottom: 0;
+	opacity: 0.8;
 }
 
 .cart-payment-total-price {
-	font-size: 19px;
-	font-weight: 400;
+	font-size: 22px;
+	font-weight: 700;
 	margin-bottom: 0;
+	color: $color8;
 }
 
 .cart-payment-span {
-	font-weight: 600;
+	font-weight: 500;
+	opacity: 0.8;
 }
 
 .cart-image-modal-global-container .ant-modal-content {

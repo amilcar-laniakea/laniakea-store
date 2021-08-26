@@ -17,6 +17,7 @@ const ModalGeneralInfo = ({ info }) => {
 			title={info.title}
 			visible={isModalGeneralInfo}
 			onOk={HandleModalGeneralInfo}
+			onCancel={HandleModalGeneralInfo}
 			cancelButtonProps={{ style: { display: 'none' } }}>
 			<h3 className='general-info-modal-title'>{info.subtitle}</h3>
 			<h3 className='general-info-modal-title'>{info.description}</h3>

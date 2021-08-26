@@ -6,14 +6,17 @@ import { InfoCircleOutlined } from '@ant-design/icons'
 
 import MetaDescription from '../../components/MetaDescription'
 
+import MainSlider from './components/MainSlider'
 import MainBanners from './components/MainBanners'
 import MainBannersLoading from './components/MainBannersLoading'
+import AboutSection from './components/AboutSection'
 
-import FeaturedCarousel from './services'
+import { FeaturedCarousel, Sliders } from './services'
 
 import './style.scss'
 
 const Home = () => {
+	const [isSliders, setSliders] = useState(null)
 	const [isFeaturedBanner, setFeaturedBanner] = useState(null)
 	const [isValidFeaturedService, setValidFeaturedService] = useState(true)
 
@@ -21,6 +24,13 @@ const Home = () => {
 		FeaturedCarousel().then((response) => {
 			if (response) {
 				setFeaturedBanner(response)
+			} else {
+				setValidFeaturedService(false)
+			}
+		})
+		Sliders().then((response) => {
+			if (response) {
+				setSliders(response)
 			} else {
 				setValidFeaturedService(false)
 			}
@@ -36,27 +46,30 @@ const Home = () => {
 					content: 'Laniakea tienda de imagenes.',
 				}}
 			/>
-			<div className='global-container'>
-				<div className='main-container'>
-					{isValidFeaturedService ? (
+			{isValidFeaturedService ? (
+				<>
+					{isSliders && isFeaturedBanner ? (
 						<>
-							{isFeaturedBanner ? (
-								<>
-									<h3 className='laniakea-main-title-global'>Imagenes destacadas:</h3>
+							<MainSlider sliders={isSliders} />
+							<div className='global-container'>
+								<div className='main-container'>
+									<h3 className='laniakea-home-main-title'>Imagenes destacadas:</h3>
 									<MainBanners carouselItems={[4, 3, 2, 1]} banners={isFeaturedBanner} />
-								</>
-							) : (
-								<MainBannersLoading />
-							)}
+									<h3 className='laniakea-home-main-title'>Acerca de:</h3>
+									<AboutSection />
+								</div>
+							</div>
 						</>
 					) : (
-						<div className='home-error-service-container'>
-							<InfoCircleOutlined className='home-error-service-icon' />
-							<h1 className='home-error-service-title'>Hubo un error en la consulta.</h1>
-						</div>
+						<MainBannersLoading />
 					)}
+				</>
+			) : (
+				<div className='home-error-service-container'>
+					<InfoCircleOutlined className='home-error-service-icon' />
+					<h1 className='home-error-service-title'>Hubo un error en la consulta.</h1>
 				</div>
-			</div>
+			)}
 		</>
 	)
 }

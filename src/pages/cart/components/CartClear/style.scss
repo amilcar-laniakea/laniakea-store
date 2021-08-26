@@ -5,14 +5,14 @@
 .cart-clear-button,
 .cart-clear-button:focus,
 .cart-clear-button:active {
-	border: 1px solid $color1;
-	background-color: $color1;
+	border: 1px solid $color3;
+	background-color: $color3;
 	padding: 7px 15px !important;
 	height: auto !important;
 	color: $color2;
 	font-size: 15px !important;
 	font-weight: 500 !important;
-	border-radius: 5px !important;
+	border-radius: 10px !important;
 	align-items: center;
 	display: flex !important;
 	transition: 0.5s ease !important;

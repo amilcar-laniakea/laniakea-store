@@ -10,6 +10,7 @@ import Cart from '../pages/cart'
 import Categories from '../pages/categories'
 import Detail from '../pages/detail'
 import OrderHistorial from '../pages/order-historial'
+import OrderSuccess from '../pages/order-success'
 import NotFound from '../pages/not-found'
 
 const Routers = () => (
@@ -20,6 +21,7 @@ const Routers = () => (
 				<Route exact path='/cart' component={Cart} />
 				<Route exact path='/categories/:id' component={Categories} />
 				<Route exact path='/detail/:id' component={Detail} />
+				<Route exact path='/order-success' component={OrderSuccess} />
 				<Route exact path='/order-historial' component={OrderHistorial} />
 				<Route path='*' component={NotFound} />
 			</Switch>
